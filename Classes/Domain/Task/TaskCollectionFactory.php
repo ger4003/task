@@ -20,8 +20,11 @@ class TaskCollectionFactory
 
     protected ?TaskCollection $taskCollection = null;
 
-    public function __construct(private ObjectManagerInterface $objectManager)
+    private ObjectManagerInterface $objectManager;
+
+    public function __construct(ObjectManagerInterface $objectManager)
     {
+        $this->objectManager = $objectManager;
     }
 
     public function buildTasksFromConfiguration(): TaskCollection
